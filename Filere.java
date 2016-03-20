@@ -8,20 +8,17 @@ class Filere
 		try(Socket cs=new Socket("localhost",6500);){
 			
 		DataInputStream cdis=new DataInputStream(cs.getInputStream());
-		FileWriter fw=new FileWriter("dat5.txt");
-		PrintWriter pw=new PrintWriter(fw);
-		String str=" ";
-		// do{
-		// 	str=cdis.readUTF();
-		// 	pw.println(str);
-		// 	pw.flush();
-		// }while(!str.equals(null));
+		// FileWriter fw=new FileWriter("dat5.txt");
+		FileWriter fw=new FileWriter(new File("F:\\dat6.txt"));
 
-		while(!str.equals(null))
+		PrintWriter pw=new PrintWriter(fw);
+		String str=null;
+		
+		while(!(str=cdis.readUTF()).equals(null))
 		{
-			str=cdis.readUTF();
+			// str=cdis.readUTF();
 			pw.println(str);
-			str=cdis.readUTF();
+			// str=cdis.readUTF();
 			pw.flush();
 		}
 		
